@@ -1,0 +1,189 @@
+body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1, 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin-bottom: 100px;
+  background: rgb(214, 208, 208);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: text-decoration 1.2s;
+}
+a:hover {
+  text-decoration: underline 1.5px purple;
+  text-shadow: 2px 2px 20px white;
+}
+.header {
+  margin-top: 5px;
+  background: linear-gradient(to right, black, rgb(70, 8, 70));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  margin-left: 10px;
+}
+
+/*esta stylização é para aumentara a área para o click  */
+.menu li a {
+  display: block;
+  padding: 10px;
+}
+/* Css FlexBox 1 */
+
+h1 {
+  text-align: center;
+  margin-top: 80px;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.section__flex__p {
+  background: linear-gradient(to right, black, rgb(61, 5, 61));
+  color: white;
+  text-align: center;
+  font-size: 10px;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.flex > div {
+  flex: 1 1 200px;
+  margin: 5px 5px; /*espaço entre as imagens */
+}
+/*Css Grid 1 */
+h2 {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.grid1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* repeat(3, 1fr) */
+  grid-gap: 10px; /*espaço entre aas imagens */
+  max-width: 790px;
+  margin: 0 auto;
+}
+.grid1 > div:nth-child(n + 4) {
+  /* Este (n + 4) indica que apartir do 4º elemento recebera as propriedades*/
+  background: linear-gradient(to right, black, rgb(61, 5, 61));
+  color: white;
+  text-align: center;
+  font-size: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  max-width: 790px;
+  margin: 0 auto;
+  align-items: center;
+
+  transition: border-top 2s, border-botton 0.5s;
+}
+.grid1 > div:nth-child(n + 4):hover {
+  box-shadow: 2px 2px 20px purple;
+  border-bottom: 3px solid rgb(26, 18, 73);
+  border-top: 3px solid rgb(26, 18, 73);
+}
+.grid1 > div.anuncio {
+  grid-column: 1;
+  grid-row: 2/5;
+  display: block;
+
+  transition: border-top 2s, border-botton 0.5s;
+}
+.anuncio:hover {
+  border-top: 3px solid rgb(26, 18, 73); /*colocquei esta borda para mostrar a marcação grid-row:linha2/5 */
+  border-bottom: 3px solid rgb(26, 18, 73); /*colocquei esta borda para mostrar a marcação grid-row:linha2/5 */
+  box-shadow: 2px 2px 20px purple;
+}
+
+@media (max-width: 600px) {
+  .grid1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid1 > div:nth-child(n + 4) {
+    display: block;
+  }
+  .grid1 > div.anuncio {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+/*CSS - Grid 2 */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  grid-gap: 10px;
+  max-width: 790px;
+  padding: 5px;
+  margin: 0 auto;
+}
+.sidebar {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 450px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: flex;
+    overflow: scroll;
+  }
+  .sidebar > div {
+    flex: 1 0 200px;
+    margin: 0 10px;
+  }
+}
+/*Section  Grid 3 */
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+  margin: 0 auto;
+  max-width: 790px;
+  padding: 5px;
+}
+
+.grid3-item:nth-child(1) {
+  grid-row: 1/3; /*vai ocupara da linha 1a 3 */
+}
+.grid3-item {
+  display: grid;
+}
+.grid3-item img {
+  grid-column: 1;
+  grid-row: 1/3;
+  align-self: end;
+}
+.grid3-item p {
+  background: rgba(0, 0, 0, 0.6); /*background transparente */
+  padding: 10px;
+  color: white;
+  grid-column: 1;
+  grid-row: 2/3;
+  align-self: end;
+}
